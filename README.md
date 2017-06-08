@@ -2,6 +2,10 @@ Things to try:
 
 * DebugDemo.FrontEnd.do_thing(:rand.uniform() * 100)
 * Remote observer
+  - Linking Docker erl nodes on MacOS to run observer:
+    - Run: socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
+    - Run xquartz
+    - docker run -e DISPLAY=192.168.52.72:0 --rm -it --link debug-demo elixir:1.4.4 erl -hidden -sname foo -setcookie debugthis123
 * Erlang shell alongside Elixir shell
 * Look at process state in observer
 * Kill processes, and verify supervisor restart
