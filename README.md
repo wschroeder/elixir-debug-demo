@@ -12,8 +12,9 @@ Things to try:
 * Change DebugDemo.ThingProcessor code towards named cases instead of "if"; Code.load_file
 * Trace calls to various functions, like handle_cast
   ttb:tracer().
-  ttb:p(all, [call]).
+  ttb:p(all, [call, send]).  % send is experimental right now
   ttb:tp('Elixir.DebugDemo.ThingProcessor', handle_cast, x).
+  ttb:tpe(send, {'$gen_cast', '_', {process, '_'}}).   % wrong syntax
   ttb:tpl('Elixir.DebugDemo.ThingProcessor', process_number, x).
   ttb:stop([x, {fetch_dir, "trace"}]).
   ttb:format("trace").
